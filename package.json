@@ -1,0 +1,47 @@
+{
+  "name": "@dext7r/tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A tracking library for web applications",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "private": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dext7r/tracker"
+  },
+  "bugs": {
+    "url": "https://github.com/dext7r/tracker/issues"
+  },
+  "homepage": "https://github.com/dext7r/tracker#readme",
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://github.com/dext7r/tracker/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "tracking",
+    "analytics",
+    "web"
+  ],
+  "author": "h7ml <h7ml@qq.com>",
+  "contributors": [
+    "h7ml"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

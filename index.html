@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <button tracker-key="h7ml">按钮</button>
+    <!-- <script src="./src/main.ts"></script> -->
+    <script src="./dist/index.iife.js"></script>
+    <script>
+      new Tracker({
+        uuid: 'h7ml',
+        requestUrl: 'https://nestjs.h7ml.cn//system/track',
+        historyTracker: true,
+        domTracker: true,
+        hashTracker: true,
+        sdkVersion: '1.0.0',
+        jsError: true
+      })
+    </script>
+  </body>
+</html>
