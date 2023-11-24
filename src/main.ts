@@ -51,6 +51,27 @@ export default class Tracker {
     this.reportTracker(data)
   }
 
+  public captureScreenshot() {
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    const width = document.documentElement.clientWidth
+    const height = document.documentElement.clientHeight
+    canvas.width = width
+    canvas.height = height
+
+    const image = new Image()
+    image.onload = () => {
+      ctx?.drawImage(image, 0, 0, width, height)
+      const base64 = canvas.toDataURL()
+      this.sendTracker({
+        targetKey: 'screenshot',
+        event: 'screenshot',
+        message: base64
+      })
+    }
+    image.src = canvas.toDataURL()
+  }
+
   private captureEvents<T>(
     MouseEventList: string[],
     targetKey: string,
@@ -84,7 +105,7 @@ export default class Tracker {
     MouseEventList.forEach((event) => {
       window.addEventListener(event, (e) => {
         const target = e.target as HTMLElement
-        const targetValue = target.getAttribute('target-key')
+        const targetValue = target.getAttribute('tracker-key')
         if (targetValue) {
           this.sendTracker({
             targetKey: targetValue,

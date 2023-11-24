@@ -1,10 +1,24 @@
 {
   "name": "@dext7r/tracker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "A tracking library for web applications",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "unpkg": "dist/index.umd.js",
+  "jsdelivr": "dist/index.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*",
+    "./dist/index.js": "./dist/index.js",
+    "./dist/index.es.js": "./dist/index.es.js",
+    "./dist/index.umd.js": "./dist/index.umd.js",
+    "./dist/index.d.ts": "./dist/index.d.ts"
+  },
   "types": "dist/index.d.ts",
   "private": false,
   "scripts": {
@@ -28,7 +42,7 @@
   "license": "MIT",
   "licenses": [
     {
-      "type": "Apache-2.0",
+      "type": "MIT",
       "url": "https://github.com/dext7r/tracker/blob/master/LICENSE"
     }
   ],
@@ -37,11 +51,16 @@
     "analytics",
     "web"
   ],
-  "author": "h7ml <h7ml@qq.com>",
+  "author": {
+    "name": "h7ml",
+    "mail": "h7ml@qq.com",
+    "github": "https://github.com/dext7r/tracker"
+  },
   "contributors": [
     "h7ml"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
