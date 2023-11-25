@@ -6,7 +6,7 @@ export default defineConfig({
     outDir: 'dist',
     target: 'es2020',
     lib: {
-      entry: 'src/main.ts',
+      entry: 'src/index.ts',
       name: 'Tracker',
       fileName: 'index',
       formats: ['cjs', 'es', 'umd', 'iife']

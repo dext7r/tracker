@@ -22,10 +22,6 @@ export interface Options extends Partial<DefaultOptons> {
   requestUrl: string
 }
 
-export enum TrackerConfig {
-  version = '1.0.0'
-}
-
 export type reportTrackerData = {
   [key: string]: any
   event: string

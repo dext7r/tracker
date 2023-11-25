@@ -1,11 +1,6 @@
-import {
-  DefaultOptons,
-  Options,
-  TrackerConfig,
-  reportTrackerData
-} from './types'
+import { DefaultOptons, Options, reportTrackerData } from './types'
 import { createHistoryEvnent } from './utils'
-
+import pkg from '../package.json'
 const MouseEventList: string[] = [
   'click',
   'dblclick',
@@ -27,7 +22,7 @@ export default class Tracker {
   }
 
   private initDef(): DefaultOptons {
-    this.version = TrackerConfig.version
+    this.version = pkg.version
     window.history['pushState'] = createHistoryEvnent('pushState')
     window.history['replaceState'] = createHistoryEvnent('replaceState')
     return <DefaultOptons>{
@@ -86,9 +81,10 @@ export default class Tracker {
 
   private installInnerTrack() {
     if (this.data.historyTracker) {
-      this.captureEvents(['pushState'], 'history-pv')
-      this.captureEvents(['replaceState'], 'history-pv')
-      this.captureEvents(['popstate'], 'history-pv')
+      this.captureEvents(
+        ['pushState', 'replaceState', 'popstate'],
+        'history-pv'
+      )
     }
     if (this.data.hashTracker) {
       this.captureEvents(['hashchange'], 'hash-pv')

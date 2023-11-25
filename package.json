@@ -1,6 +1,6 @@
 {
   "name": "@dext7r/tracker",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "A tracking library for web applications",
   "main": "dist/index.js",
@@ -19,6 +19,9 @@
     "./dist/index.umd.js": "./dist/index.umd.js",
     "./dist/index.d.ts": "./dist/index.d.ts"
   },
+  "files": [
+    "dist"
+  ],
   "types": "dist/index.d.ts",
   "private": false,
   "scripts": {

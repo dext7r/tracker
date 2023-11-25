@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>dext7r tracker</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -11,26 +11,37 @@
   </head>
   <body class="bg-gray-100">
     <button
-      id="button1"
+      id="pv"
+      class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-4"
+    >
+      访客上报
+    </button>
+    <button
+      id="screenshot"
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4"
     >
       截图上报
     </button>
     <button
-      id="button2"
+      id="jsError"
       class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-4"
     >
       js错误上报
     </button>
     <button
+      id="promiseError"
+      class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded m-4"
+    >
+      promise错误上报
+    </button>
+    <button
       tracker-key="h7ml"
-      id="button3"
       class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded m-4"
     >
-      上报所有信息
+      dom上报
     </button>
-    <!-- <script src="./src/main.ts"></script> -->
-    <script src="https://unpkg.com/@dext7r/tracker@1.1.0/dist/index.iife.js"></script>
+    <!-- <script src="./dist/index.iife.js"></script> -->
+    <script src="https://unpkg.com/@dext7r/tracker/dist/index.iife.js"></script>
     <script>
       const tracker = new Tracker({
         uuid: 'h7ml',
@@ -38,23 +49,28 @@
         historyTracker: true,
         domTracker: true,
         hashTracker: true,
-        sdkVersion: '1.0.0',
+        sdkVersion: new Tracker({}).version,
         jsError: true
       })
 
-      const button1 = document.getElementById('button1')
-      const button2 = document.getElementById('button2')
-      const button3 = document.getElementById('button3')
+      const pv = document.getElementById('pv')
+      const screenshot = document.getElementById('screenshot')
+      const jsError = document.getElementById('jsError')
+      const promiseError = document.getElementById('promiseError')
+      pv.addEventListener('click', () => {
+        history.pushState('pv', 'pv', '/')
+      })
 
-      button1.addEventListener('click', () => {
+      screenshot.addEventListener('click', () => {
         tracker.captureScreenshot()
       })
 
-      button2.addEventListener('click', () => {
-        tracker.sendTracker({
-          targetKey: 'message',
-          event: 'error',
-          message: e
+      jsError.addEventListener('click', () => {
+        console.log(vue)
+      })
+      promiseError.addEventListener('click', () => {
+        const promise = new Promise((resolve, reject) => {
+          reject('这是一个严重的 Promise 错误')
         })
       })
     </script>
